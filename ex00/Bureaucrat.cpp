@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 19:43:09 by msousa            #+#    #+#             */
-/*   Updated: 2022/04/11 17:48:33 by msousa           ###   ########.fr       */
+/*   Updated: 2022/04/11 18:04:38 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ Bureaucrat::Bureaucrat( void ) { /* no-op */ }
 
 Bureaucrat::Bureaucrat( std::string const & name, uint grade ) : name(name)
 {
-	if (grade > 150)
+	if (grade > GRADE_MIN)
 		throw Bureaucrat::GradeTooLowException();
-	else if (grade < 1)
+	else if (grade < GRADE_MAX)
 		throw Bureaucrat::GradeTooHighException();
 	this->grade = grade;
 }
