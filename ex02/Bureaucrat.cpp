@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 19:43:09 by msousa            #+#    #+#             */
-/*   Updated: 2022/04/11 20:27:21 by msousa           ###   ########.fr       */
+/*   Updated: 2022/04/12 20:30:41 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,19 @@ void	Bureaucrat::signForm(Form & form) const
 	}
 	catch (Form::GradeTooLowException & e) {
 		LOG(getName() << " couldn’t sign " <<
+			form.getName() << " because " <<
+			e.what() << ".");
+	}
+}
+
+void	Bureaucrat::executeForm(Form const & form) const
+{
+	try {
+		form.execute(*this);
+		LOG(getName() << " executed " << form.getName());
+	}
+	catch (Form::GradeTooLowException & e) {
+		LOG(getName() << " couldn’t execute " <<
 			form.getName() << " because " <<
 			e.what() << ".");
 	}

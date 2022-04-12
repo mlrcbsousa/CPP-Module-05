@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 18:54:08 by msousa            #+#    #+#             */
-/*   Updated: 2022/04/11 20:38:16 by msousa           ###   ########.fr       */
+/*   Updated: 2022/04/12 20:37:30 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,22 @@ public:
 
 	Form( std::string const	& name,
 		  uint const & gradeSign,
-		  uint const & gradeExecute );
+		  uint const & gradeExecute,
+		  std::string const & target );
 
 	Form( Form const & src );
-	~Form( void );
-	Form &	operator = ( Form const & rhs );
+	virtual ~Form( void );
+	virtual Form &	operator = ( Form const & rhs );
 
 	std::string	getName( void ) const;
 	bool		getSigned( void ) const;
 	uint		getGradeSign( void ) const;
 	uint		getGradeExecute( void ) const;
+	std::string	getTarget( void ) const;
 
-	void		beSigned(Bureaucrat bureaucrat);
+	void			beSigned(Bureaucrat bureaucrat);
+	void			execute(Bureaucrat const & executor) const;
+	virtual void	action( void ) const = 0;
 
 private:
 
@@ -58,6 +62,8 @@ private:
 	bool				isSigned;
 	uint const			gradeSign;
 	uint const			gradeExecute;
+
+	std::string	const	target;
 
 };
 

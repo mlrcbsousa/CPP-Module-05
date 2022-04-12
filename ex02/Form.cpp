@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 18:54:00 by msousa            #+#    #+#             */
-/*   Updated: 2022/04/11 20:26:33 by msousa           ###   ########.fr       */
+/*   Updated: 2022/04/12 20:47:53 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ Form::Form( void ) : gradeSign(GRADE_MIN), gradeExecute(GRADE_MIN) { /* no-op */
 
 Form::Form( std::string const & name,
 			uint const & gradeSign,
-			uint const & gradeExecute ) :
+			uint const & gradeExecute,
+			std::string const & target ) :
 			name(name),
 			isSigned(false),
 			gradeSign(gradeSign),
-			gradeExecute(gradeExecute)
+			gradeExecute(gradeExecute),
+			target(target)
 {
 	if (gradeSign > GRADE_MIN || gradeExecute > GRADE_MIN)
 		throw Form::GradeTooLowException();
@@ -43,7 +45,8 @@ Form::Form( std::string const & name,
 Form::Form( Form const & src ) :
 			name(src.name),
 			gradeSign(src.gradeSign),
-			gradeExecute(src.gradeExecute)
+			gradeExecute(src.gradeExecute),
+			target(src.target)
 {
 	*this = src;
 }
@@ -65,12 +68,25 @@ std::string	Form::getName( void ) const { return name; }
 bool	Form::getSigned( void ) const { return isSigned; }
 uint	Form::getGradeSign( void ) const { return gradeSign; }
 uint	Form::getGradeExecute( void ) const { return gradeExecute; }
+std::string	Form::getTarget( void ) const { return target; }
 
 void	Form::beSigned(Bureaucrat bureaucrat) {
-	if (bureaucrat.getGrade() > gradeSign)
+	if (bureaucrat.getGrade() > gradeSign) {
 		throw Form::GradeTooLowException();
-	else
-		isSigned = true;
+		return ;
+	}
+
+	isSigned = true;
+}
+
+void	Form::execute(Bureaucrat const & executor) const
+{
+	if (executor.getGrade() > gradeExecute) {
+		throw Form::GradeTooLowException();
+		return ;
+	}
+
+	action();
 }
 
 /* ostream override */
@@ -80,5 +96,6 @@ std::ostream &	operator << ( std::ostream & o, Form const & i )
 	o << (i.getSigned() ? "" : "not ") << "signed. ";
 	o << "Grade " << i.getGradeSign() << " to sign. ";
 	o << "Grade " << i.getGradeExecute() << " to execute.";
+	o << "Target: " << i.getTarget();
 	return o;
 }

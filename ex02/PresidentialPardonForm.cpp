@@ -6,32 +6,34 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:55:27 by msousa            #+#    #+#             */
-/*   Updated: 2022/04/11 20:55:36 by msousa           ###   ########.fr       */
+/*   Updated: 2022/04/12 20:38:03 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
 /* Constructors */
-PresidentialPardonForm::PresidentialPardonForm( void ) { /* no-op */ }
-PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src ) { *this = src; }
+PresidentialPardonForm::PresidentialPardonForm( std::string const & target ) :
+	Form("PresidentialPardon", 25, 5, target)
+{ /* no-op */ }
+
+PresidentialPardonForm::PresidentialPardonForm(
+	PresidentialPardonForm const & src ) :
+	Form(src)
+{ *this = src; }
 
 /* Destructor */
 PresidentialPardonForm::~PresidentialPardonForm( void ) { /* no-op */ }
 
 /* Assignment operator */
-PresidentialPardonForm &	PresidentialPardonForm::operator = ( PresidentialPardonForm const & rhs )
+PresidentialPardonForm &	PresidentialPardonForm::operator = (
+	PresidentialPardonForm const & rhs )
 {
-	if (this != &rhs) {
-		//value = rhs.value;
-	}
+	(void)rhs;
 	return *this;
 }
 
-/* ostream override */
-std::ostream &	operator << ( std::ostream & o, PresidentialPardonForm const & i )
+void	PresidentialPardonForm::action( void ) const
 {
-	(void)i;
-	o << "PresidentialPardonForm";
-	return o;
+	LOG(getTarget() << " has been pardoned by Zaphod Beeblebrox.");
 }

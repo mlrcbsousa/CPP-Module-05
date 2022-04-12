@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 19:43:37 by msousa            #+#    #+#             */
-/*   Updated: 2022/04/11 20:38:30 by msousa           ###   ########.fr       */
+/*   Updated: 2022/04/12 20:27:13 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ public:
 
 	void			incGrade( void );
 	void			decGrade( void );
-	void			signForm(Form & form) const;
+	void			signForm( Form & form ) const;
+	void			executeForm( Form const & form ) const;
 
 private:
 
