@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:56:16 by msousa            #+#    #+#             */
-/*   Updated: 2022/04/12 20:36:55 by msousa           ###   ########.fr       */
+/*   Updated: 2022/04/12 23:29:07 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,9 @@ void	ShrubberyCreationForm::action( void ) const
 	out << "    \\\\/ ._\\//_/__/  ,\\_//__\\\\/.  \\_//__/_" << std::endl;
 
 	out.close();
+}
+
+Form*	ShrubberyCreationForm::create( std::string const & target )
+{
+	return new ShrubberyCreationForm(target);
 }

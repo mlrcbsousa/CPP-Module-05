@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 18:54:00 by msousa            #+#    #+#             */
-/*   Updated: 2022/04/12 20:47:53 by msousa           ###   ########.fr       */
+/*   Updated: 2022/04/12 22:27:09 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ const char*	Form::GradeTooHighException::what( void ) const throw()
 const char*	Form::GradeTooLowException::what( void ) const throw()
 {
 	return "grade is too low";
+}
+
+const char*	Form::FormDoesntExist::what( void ) const throw()
+{
+	return "form doesn't exist";
 }
 
 /* Constructors */

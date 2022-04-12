@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 19:43:09 by msousa            #+#    #+#             */
-/*   Updated: 2022/04/12 20:30:41 by msousa           ###   ########.fr       */
+/*   Updated: 2022/04/12 23:58:07 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ void	Bureaucrat::signForm(Form & form) const
 void	Bureaucrat::executeForm(Form const & form) const
 {
 	try {
+		// has to be in this order so cathed exception doesnt happen after
+		// printing success on the console
 		form.execute(*this);
 		LOG(getName() << " executed " << form.getName());
 	}

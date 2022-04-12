@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:55:42 by msousa            #+#    #+#             */
-/*   Updated: 2022/04/12 20:38:11 by msousa           ###   ########.fr       */
+/*   Updated: 2022/04/12 23:27:39 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ public:
 	virtual PresidentialPardonForm &	operator = ( t const & rhs );
 
 	virtual void	action( void ) const;
+
+	static Form*	create( std::string const & target );
 
 };
 

@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 18:54:08 by msousa            #+#    #+#             */
-/*   Updated: 2022/04/12 20:37:30 by msousa           ###   ########.fr       */
+/*   Updated: 2022/04/12 23:40:03 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ public:
 		virtual const char*	what( void ) const throw();
 	};
 
+	class FormDoesntExist : public std::exception {
+	public:
+		virtual const char*	what( void ) const throw();
+	};
+
 	Form( std::string const	& name,
 		  uint const & gradeSign,
 		  uint const & gradeExecute,
@@ -54,6 +59,8 @@ public:
 	void			execute(Bureaucrat const & executor) const;
 	virtual void	action( void ) const = 0;
 
+	static Form*	create( std::string const & target );
+
 private:
 
 	Form( void );
@@ -65,6 +72,13 @@ private:
 
 	std::string	const	target;
 
+};
+
+typedef Form*	(*t_form)( std::string const & target );
+
+struct s_form {
+	std::string	name;
+	t_form		form;
 };
 
 std::ostream &	operator << ( std::ostream & o, Form const & i );

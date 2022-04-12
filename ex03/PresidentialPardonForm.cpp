@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:55:27 by msousa            #+#    #+#             */
-/*   Updated: 2022/04/12 20:38:03 by msousa           ###   ########.fr       */
+/*   Updated: 2022/04/12 23:28:33 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,9 @@ PresidentialPardonForm &	PresidentialPardonForm::operator = (
 void	PresidentialPardonForm::action( void ) const
 {
 	LOG(getTarget() << " has been pardoned by Zaphod Beeblebrox.");
+}
+
+Form*	PresidentialPardonForm::create( std::string const & target )
+{
+	return new PresidentialPardonForm(target);
 }

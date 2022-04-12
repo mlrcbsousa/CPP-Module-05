@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:56:16 by msousa            #+#    #+#             */
-/*   Updated: 2022/04/12 21:01:21 by msousa           ###   ########.fr       */
+/*   Updated: 2022/04/12 23:28:52 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,9 @@ void	RobotomyRequestForm::action( void ) const
 		LOG(getTarget() << " has been robotomized successfully.");
 	else
 		LOG("Robotomization failed on " << getTarget());
+}
+
+Form*	RobotomyRequestForm::create( std::string const & target )
+{
+	return new RobotomyRequestForm(target);
 }

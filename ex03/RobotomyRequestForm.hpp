@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:56:28 by msousa            #+#    #+#             */
-/*   Updated: 2022/04/12 20:59:30 by msousa           ###   ########.fr       */
+/*   Updated: 2022/04/12 23:27:53 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ public:
 	virtual RobotomyRequestForm &	operator = ( t const & rhs );
 
 	virtual void	action( void ) const;
+
+	static Form*	create( std::string const & target );
 
 };
 
