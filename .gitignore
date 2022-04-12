@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+# ex02 files
+ex02/*_shrubbery
