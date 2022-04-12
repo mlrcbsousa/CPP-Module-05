@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 22:19:57 by msousa            #+#    #+#             */
-/*   Updated: 2022/04/12 23:56:35 by msousa           ###   ########.fr       */
+/*   Updated: 2022/04/13 00:05:17 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ Form*	Intern::makeForm( std::string name, std::string target )
 
 	if (!form) {
 		throw Form::FormDoesntExist();
-		return NULL;
 	}
 
 	LOG("Intern creates " << name << " form.");

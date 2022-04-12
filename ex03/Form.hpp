@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 18:54:08 by msousa            #+#    #+#             */
-/*   Updated: 2022/04/12 23:40:03 by msousa           ###   ########.fr       */
+/*   Updated: 2022/04/13 00:00:24 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ public:
 	void			beSigned(Bureaucrat bureaucrat);
 	void			execute(Bureaucrat const & executor) const;
 	virtual void	action( void ) const = 0;
-
-	static Form*	create( std::string const & target );
 
 private:
 
